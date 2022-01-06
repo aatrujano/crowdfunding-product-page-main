@@ -1,0 +1,59 @@
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  box-sizing: inherit;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+// DISPLAY HELPER CLASSES
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+}
+
+// LATERAL PADDING HEPER CLASSES
+
+.lat-padding {
+  padding: 0 10rem;
+
+  @include breakPointDown('1023') {
+    padding: 0 5rem;
+  }
+
+  @include breakPointDown('750') {
+    padding: 0 1.5rem;
+  }
+}

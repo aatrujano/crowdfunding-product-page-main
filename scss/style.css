@@ -1,0 +1,129 @@
+html {
+  font-size: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.flex-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.flex-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.lat-padding {
+  padding: 0 10rem;
+}
+
+@media (max-width: 63.9375rem) {
+  .lat-padding {
+    padding: 0 5rem;
+  }
+}
+
+@media (max-width: 46.875rem) {
+  .lat-padding {
+    padding: 0 1.5rem;
+  }
+}
+
+.header {
+  background-image: url("../images/image-hero-desktop.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  padding-top: 2.8125rem;
+  height: 25rem;
+}
+
+@media (max-width: 46.875rem) {
+  .header {
+    background-image: url("../images/image-hero-mobile.jpg");
+    padding-top: 1.875rem;
+  }
+}
+
+.header__navBar {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header__navBar-links .navLink a {
+  color: white;
+}
+
+.header__navBar-links .navLink:not(:last-child) {
+  margin-right: 1.875rem;
+}
+
+@media (max-width: 46.875rem) {
+  .header__navBar-links {
+    display: none;
+  }
+}
+
+.header__navBar-hamburger {
+  display: none;
+}
+
+.header__navBar-hamburger > span {
+  background-color: white;
+  width: 1rem;
+  height: 0.1875rem;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+
+.header__navBar-hamburger > span:not(:last-child) {
+  margin-bottom: 0.1875rem;
+}
+
+@media (max-width: 46.875rem) {
+  .header__navBar-hamburger {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+/*# sourceMappingURL=style.css.map */
