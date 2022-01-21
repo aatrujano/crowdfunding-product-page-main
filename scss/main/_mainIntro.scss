@@ -1,0 +1,41 @@
+.main {
+  &__intro {
+    &-logo {
+      position: absolute;
+      top: -1.75rem;
+      left: calc(50% - 1.75rem);
+      width: 3.5rem;
+      margin: auto;
+    }
+    &-title {
+      font-size: 1.75rem;
+      margin-bottom: 1.125rem;
+      margin-top: 0.625rem;
+    }
+    &-info {
+      color: $darkGray;
+      margin-bottom: 2.3125rem;
+    }
+    &-title,
+    &-info {
+      text-align: center;
+    }
+
+    &-ctaContainer {
+      justify-content: space-between;
+      .backThisProject {
+        color: #fff;
+        background-color: $cyan;
+        width: 12.5rem;
+        padding: 1rem;
+      }
+      .bookmark {
+        background-color: #f4f4f4;
+        width: 10.9375rem;
+        padding-right: 26px;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.main {
+  &__status {
+
+    &-allData {
+      margin-bottom: 2.4375rem;
+      .dataContainer {
+        &.moneyRaised {
+          padding-right: 2.625rem;
+        }
+        &.totalBakers {
+          padding-left: 2.9375rem;
+          padding-right: 5.625rem;
+          border-right: solid 1px #dbdbdb;
+          border-left: solid 1px #dbdbdb;
+        }
+        &.daysLeft {
+          padding-left: 2.9375rem;
+        }
+        .count {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 0.625rem;
+        }
+        .description {
+          color: $darkGray;
+        }
+      }
+    }
+
+    &-progressBar {
+      width: 100%;
+      height: 0.75rem;
+      border-radius: 3rem;
+      background-color: #f4f4f4;
+      .currentProgressBar{
+          height: 100%;
+          background-color: $cyan;
+          width: calc(1% * (89914 / 1000));
+          border-radius: 3rem;
+      }
+    }
+  }
+}

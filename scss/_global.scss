@@ -15,6 +15,17 @@ body {
   position: relative;
   margin: 0;
   padding: 0;
+  font-family: $commissioner;
+  background-color: #f4f4f4;
+}
+
+button {
+  font-family: $commissioner;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
 }
 
 h1,
@@ -47,6 +58,7 @@ a:hover {
 // LATERAL PADDING HEPER CLASSES
 
 .lat-padding {
+  // Header
   padding: 0 10rem;
 
   @include breakPointDown('1023') {
@@ -54,6 +66,14 @@ a:hover {
   }
 
   @include breakPointDown('750') {
-    padding: 0 1.5rem;
+    padding: 0 1.4rem;
   }
 }
+
+.mainSection{
+  padding: 2.9375rem;
+  margin-bottom: 1.5625rem;  
+  background-color: #fff;
+  border-radius: 0.5rem; 
+}
+

@@ -2,7 +2,10 @@
   background-image: url('../images/image-hero-desktop.jpg');
   @include breakPointDown('750') {
     background-image: url('../images/image-hero-mobile.jpg');
-    padding-top: 1.875rem;
+    padding-top: 1.85rem;
+  }
+  @include breakPointDown('500'){
+    background-size: contain;
   }
   background-repeat: no-repeat;
   background-position: top;
