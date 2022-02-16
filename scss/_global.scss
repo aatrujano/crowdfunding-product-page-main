@@ -16,7 +16,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: $commissioner;
-  background-color: #f4f4f4;
+  background-color: #fAfAfA;
 }
 
 button {
@@ -26,6 +26,9 @@ button {
   border: none;
   border-radius: 3rem;
   cursor: pointer;
+  &:active {
+    transform: scale(.98);
+  }
 }
 
 h1,
@@ -71,7 +74,7 @@ a:hover {
 }
 
 .mainSection{
-  padding: 2.9375rem;
+  padding: 3rem;
   margin-bottom: 1.5625rem;  
   background-color: #fff;
   border-radius: 0.5rem; 

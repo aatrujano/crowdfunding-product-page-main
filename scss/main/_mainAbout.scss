@@ -1,0 +1,60 @@
+.main {
+  &__about {
+    &-title {
+      margin-bottom: 2rem;
+    }
+    &-text {
+      color: $darkGray;
+      line-height: 1.8125rem;
+      margin-bottom: 2rem;
+    }
+    .rewards {
+      > div:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
+    &-rewardContainer {
+      border-radius: 9px;
+      border: 1px solid #D7D7D7;
+      padding: 2.375rem 2rem;
+      .rewardTitle {
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.125rem;
+        > span {
+          color: $cyan;
+          cursor: pointer;
+        }
+      }
+      > p {
+        color: $darkGray;
+        line-height: 1.8125rem;
+        margin-bottom: 1.125rem;
+      }
+      .rewardInfoAndCta {
+        justify-content: space-between;
+        align-items: center;
+        > p {
+          font-size: 1.75rem;
+          font-weight: 700;
+        }
+        > span {
+          color: $darkGray;
+          margin-right: auto;
+          margin-left: 0.625rem;
+          font-size: 0.875rem;
+        }
+        .rewardButton {
+          background-color: $cyan;
+          color: #fff;
+          padding: 1rem;
+          width: 9.8125rem;
+          transition: background-color 100ms ease;
+          &:hover {
+            background-color: $hoverCyan;
+          }
+        }
+      }
+    }
+  }
+}

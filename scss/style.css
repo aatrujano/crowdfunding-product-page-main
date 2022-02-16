@@ -18,7 +18,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Commissioner", sans-serif;
-  background-color: #f4f4f4;
+  background-color: #fAfAfA;
 }
 
 button {
@@ -28,6 +28,11 @@ button {
   border: none;
   border-radius: 3rem;
   cursor: pointer;
+}
+
+button:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 h1,
@@ -80,7 +85,7 @@ a:hover {
 }
 
 .mainSection {
-  padding: 2.9375rem;
+  padding: 3rem;
   margin-bottom: 1.5625rem;
   background-color: #fff;
   border-radius: 0.5rem;
@@ -158,6 +163,10 @@ a:hover {
   margin: auto;
 }
 
+.main > div {
+  border: 1px solid #F5F5F5;
+}
+
 .main__intro-logo {
   position: absolute;
   top: -1.75rem;
@@ -192,18 +201,55 @@ a:hover {
   background-color: #3cb4ac;
   width: 12.5rem;
   padding: 1rem;
+  -webkit-transition: background-color 100ms ease;
+  transition: background-color 100ms ease;
 }
 
-.main__intro-ctaContainer .bookmark {
-  background-color: #f4f4f4;
-  width: 10.9375rem;
-  padding-right: 26px;
+.main__intro-ctaContainer .backThisProject:hover {
+  background-color: #157a74;
+}
+
+.main__intro-ctaContainer .bookmarkContainer {
+  position: relative;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-transition: opacity 100ms ease;
+  transition: opacity 100ms ease;
+  cursor: pointer;
+}
+
+.main__intro-ctaContainer .bookmarkContainer:hover {
+  opacity: 0.64;
+}
+
+.main__intro-ctaContainer .bookmarkContainer .bookmark {
+  background-color: #f4f4f4;
+  width: 10.9375rem;
+  height: 3.5rem;
+  padding-left: 2.625rem;
+  color: #727272;
+}
+
+.main__intro-ctaContainer .bookmarkContainer #svg {
+  position: absolute;
+}
+
+.main__intro-ctaContainer .bookmarkContainer.bookmarked:hover {
+  opacity: 1;
+}
+
+.main__intro-ctaContainer .bookmarkContainer.bookmarked .bookmark {
+  width: 11.8125rem;
+  color: #157a74;
+}
+
+.main__intro-ctaContainer .bookmarkContainer.bookmarked svg g #circle {
+  fill: #157a74;
+}
+
+.main__intro-ctaContainer .bookmarkContainer.bookmarked svg g #path {
+  fill: #fff;
 }
 
 .main__status-allData {
@@ -247,5 +293,80 @@ a:hover {
   background-color: #3cb4ac;
   width: calc(1% * (89914 / 1000));
   border-radius: 3rem;
+}
+
+.main__about-title {
+  margin-bottom: 2rem;
+}
+
+.main__about-text {
+  color: #7a7a7a;
+  line-height: 1.8125rem;
+  margin-bottom: 2rem;
+}
+
+.main__about .rewards > div:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.main__about-rewardContainer {
+  border-radius: 9px;
+  border: 1px solid #D7D7D7;
+  padding: 2.375rem 2rem;
+}
+
+.main__about-rewardContainer .rewardTitle {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1.125rem;
+}
+
+.main__about-rewardContainer .rewardTitle > span {
+  color: #3cb4ac;
+  cursor: pointer;
+}
+
+.main__about-rewardContainer > p {
+  color: #7a7a7a;
+  line-height: 1.8125rem;
+  margin-bottom: 1.125rem;
+}
+
+.main__about-rewardContainer .rewardInfoAndCta {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main__about-rewardContainer .rewardInfoAndCta > p {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.main__about-rewardContainer .rewardInfoAndCta > span {
+  color: #7a7a7a;
+  margin-right: auto;
+  margin-left: 0.625rem;
+  font-size: 0.875rem;
+}
+
+.main__about-rewardContainer .rewardInfoAndCta .rewardButton {
+  background-color: #3cb4ac;
+  color: #fff;
+  padding: 1rem;
+  width: 9.8125rem;
+  -webkit-transition: background-color 100ms ease;
+  transition: background-color 100ms ease;
+}
+
+.main__about-rewardContainer .rewardInfoAndCta .rewardButton:hover {
+  background-color: #157a74;
 }
 /*# sourceMappingURL=style.css.map */
