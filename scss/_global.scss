@@ -78,5 +78,8 @@ a:hover {
   margin-bottom: 1.5625rem;  
   background-color: #fff;
   border-radius: 0.5rem; 
+  @include breakPointDown('750'){
+    padding: 3rem 1.4375rem;
+  }
 }
 

@@ -1,17 +1,30 @@
 .main {
   &__status {
-
+    align-items: center;
     &-allData {
       margin-bottom: 2.4375rem;
+      > div:not(:last-child) {
+        &:before {
+          content: '';
+          position: absolute;
+          height: 100%;
+          width: 1px;
+          background-color: #dbdbdb;
+          right: 0;
+          top: 0;
+        }
+      }
       .dataContainer {
+        position: relative;
         &.moneyRaised {
           padding-right: 2.625rem;
         }
-        &.totalBakers {
+        &.totalBackers {
           padding-left: 2.9375rem;
           padding-right: 5.625rem;
-          border-right: solid 1px #dbdbdb;
-          border-left: solid 1px #dbdbdb;
+          @include breakPointDown('670') {
+            padding-right: 2.625rem;
+          }
         }
         &.daysLeft {
           padding-left: 2.9375rem;
@@ -25,6 +38,33 @@
           color: $darkGray;
         }
       }
+      @include breakPointDown('572') {
+        flex-direction: column;
+        > div:not(:last-child) {
+          &:before {
+            height: 1px;
+            width: 82px;
+            background-color: #dbdbdb;
+            right: calc(50% - 41px);
+            bottom: 0;
+            top: unset;
+          }
+        }
+        .dataContainer {
+          &.moneyRaised,
+          &.totalBackers,
+          &.daysLeft {
+            padding: 0px;
+            align-items: center;
+          }
+          &:not(:last-child){
+            margin-bottom: 1.3rem;
+            .description{
+              margin-bottom: 1.5rem;
+            }
+          }
+        }
+      }
     }
 
     &-progressBar {
@@ -32,11 +72,11 @@
       height: 0.75rem;
       border-radius: 3rem;
       background-color: #f4f4f4;
-      .currentProgressBar{
-          height: 100%;
-          background-color: $cyan;
-          width: calc(1% * (89914 / 1000));
-          border-radius: 3rem;
+      .currentProgressBar {
+        height: 100%;
+        background-color: $cyan;
+        width: calc(1% * (89914 / 1000));
+        border-radius: 3rem;
       }
     }
   }

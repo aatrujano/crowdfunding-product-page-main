@@ -1,10 +1,14 @@
 .main{
     position: relative;
     bottom: 5.625rem;
+    padding: 0 1.5rem;
     width: 45.5rem;
     margin: auto;
     > div {
         border: 1px solid #F5F5F5;
+    }
+    @include breakPointDown('750'){
+        width: unset;
     }
 }
 

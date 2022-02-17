@@ -7,6 +7,10 @@
       color: $darkGray;
       line-height: 1.8125rem;
       margin-bottom: 2rem;
+      @include breakPointDown('572') {
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+      }
     }
     .rewards {
       > div:not(:last-child) {
@@ -15,7 +19,7 @@
     }
     &-rewardContainer {
       border-radius: 9px;
-      border: 1px solid #D7D7D7;
+      border: 1px solid #d7d7d7;
       padding: 2.375rem 2rem;
       .rewardTitle {
         justify-content: space-between;
@@ -23,7 +27,6 @@
         margin-bottom: 1.125rem;
         > span {
           color: $cyan;
-          cursor: pointer;
         }
       }
       > p {
@@ -34,15 +37,17 @@
       .rewardInfoAndCta {
         justify-content: space-between;
         align-items: center;
-        > p {
-          font-size: 1.75rem;
-          font-weight: 700;
-        }
-        > span {
-          color: $darkGray;
-          margin-right: auto;
-          margin-left: 0.625rem;
-          font-size: 0.875rem;
+        .itemsLeft {
+          align-items: center;
+          > p {
+            font-size: 1.75rem;
+            font-weight: 700;
+          }
+          > span {
+            color: $darkGray;
+            margin-left: 0.625rem;
+            font-size: 0.875rem;
+          }
         }
         .rewardButton {
           background-color: $cyan;
@@ -53,6 +58,35 @@
           &:hover {
             background-color: $hoverCyan;
           }
+        }
+      }
+      &.outOfStock {
+        opacity: 0.5;
+        .rewardButton {
+          background-color: $darkGray;
+          transition: none;
+          cursor: unset;
+          &:hover {
+            background-color: $darkGray;
+          }
+        }
+      }
+      @include breakPointDown('572') {
+        padding: 2.375rem 1.5rem;
+        .rewardTitle,
+        .rewardInfoAndCta {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .rewardTitle h3 {
+          margin-bottom: 0.5rem;
+        }
+        .rewardInfoAndCta .itemsLeft {
+          margin-bottom: 1.625rem;
+        }
+        .rewardText {
+          font-size: 0.875rem;
+          line-height: 1.5rem;
         }
       }
     }
