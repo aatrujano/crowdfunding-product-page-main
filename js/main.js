@@ -38,14 +38,18 @@ const backProjectModal = document.getElementById('backThisProject');
 const overlay = document.getElementById('overlay');
 
 const showBackThisProjectModal = () => {
-  let pledgeContainers = document.querySelectorAll('.main__backThisProject-pledgeContainer');  
-  pledgeContainers.forEach((container, index)=> {
-    if (index === 0){
-      return
-    }else if(container.children[0].children[3].children[0].innerHTML === '0'){
+  let pledgeContainers = document.querySelectorAll(
+    '.main__backThisProject-pledgeContainer'
+  );
+  pledgeContainers.forEach((container, index) => {
+    if (index === 0) {
+      return;
+    } else if (
+      container.children[0].children[2].children[0].innerHTML === '0'
+    ) {
       container.classList.add('pledgeOutOfStock');
     }
-  })
+  });
   document.documentElement.scrollTop = 100;
   backProjectModal.classList.remove('removed');
   backProjectModal.classList.add('showModal');
@@ -65,13 +69,14 @@ selectRewardbuttons.forEach((button) =>
 const closeModalIcon = document.getElementById('closeModalIcon');
 const closeBackThisProjectModal = () => {
   backProjectModal.classList.remove('showModal');
-  backProjectModal.classList.add('removed');  
+  backProjectModal.classList.add('removed');
 };
 
 const closeOverlay = () => {
   overlay.classList.remove('shown');
   overlay.classList.add('hidden');
-}
+  removeEnterPledgeFromAll();
+};
 
 closeModalIcon.addEventListener('click', closeBackThisProjectModal);
 closeModalIcon.addEventListener('click', closeOverlay);
@@ -80,16 +85,21 @@ closeModalIcon.addEventListener('click', closeOverlay);
 const pledgeContainers = document.querySelectorAll(
   '.main__backThisProject-pledgeContainer'
 );
-
-
+const removeEnterPledgeFromAll = () => {
+  pledgeContainers.forEach((container) => {
+    if (container.classList.contains('showEnterPledge')) {
+      container.classList.remove('showEnterPledge');
+    }
+  });
+};
 const showEnterPledge = (cont) => {
-    pledgeContainers.forEach((container) => {
-      if (container.classList.contains('showEnterPledge')) {
-        container.classList.remove('showEnterPledge');
-      }
-      cont.classList.add('showEnterPledge');
-    });
-  };
+  pledgeContainers.forEach((container) => {
+    if (container.classList.contains('showEnterPledge')) {
+      container.classList.remove('showEnterPledge');
+    }
+    cont.classList.add('showEnterPledge');
+  });
+};
 
 pledgeContainers.forEach((container) => {
   container.addEventListener('click', () => {
@@ -115,10 +125,10 @@ const updateMoneyRaised = (cont) => {
 };
 
 const updateItemsInStock = (cont, index) => {
-  let items = cont.children[0].children[3].children[0];
+  let items = cont.children[0].children[2].children[0];
   let currentItems = parseFloat(items.innerHTML.replace(/,/g, ''));
   let newItems = currentItems - 1;
-  let itemsInAboutModal = document.querySelectorAll('.itemsLeft')
+  let itemsInAboutModal = document.querySelectorAll('.itemsLeft');
   let itemInAboutModalToUpdate = itemsInAboutModal[index - 1].children[0];
   items.innerHTML = newItems;
   itemInAboutModalToUpdate.innerHTML = newItems;
@@ -127,22 +137,24 @@ const updateItemsInStock = (cont, index) => {
 const updateProgressBar = () => {
   let progressBar = document.getElementById('progressBar');
   console.log(progressBar);
-  let currentMoneyRaised = parseFloat(document.getElementById('totalMoney').innerHTML.replace(/,/g, ''));
+  let currentMoneyRaised = parseFloat(
+    document.getElementById('totalMoney').innerHTML.replace(/,/g, '')
+  );
 
   console.log(currentMoneyRaised);
-  if(currentMoneyRaised < 100000) {
+  if (currentMoneyRaised < 100000) {
     progressBar.style.width = `calc(1% * (${currentMoneyRaised} / 1000))`;
   } else {
     progressBar.style.width = '100%';
   }
-}
+};
 
 const showThanksModal = () => {
   const modal = document.getElementById('thanksModal');
   modal.classList.remove('hideThanks');
   modal.classList.add('showThanks');
   document.documentElement.scrollTop = 400;
-}
+};
 
 // pledge with no reward
 const confirmPledgeNoReward = () => {
@@ -157,14 +169,16 @@ const initialPledgeAmounts = ['25', '75', '200'];
 
 const confirmPledge = (cont, index) => {
   let inputAmount = cont.children[1].children[1].children[1];
-  if (parseFloat(inputAmount.value) >= parseFloat(initialPledgeAmounts[index - 1])){
+  if (
+    parseFloat(inputAmount.value) >= parseFloat(initialPledgeAmounts[index - 1])
+  ) {
     updateTotalBackers();
     updateMoneyRaised(cont);
     updateItemsInStock(cont, index);
     closeBackThisProjectModal();
     showThanksModal();
     updateProgressBar();
-    checkForOutOfStockItems();    
+    checkForOutOfStockItems();
     inputAmount.value = initialPledgeAmounts[index - 1];
   }
 };
@@ -192,8 +206,32 @@ const finishPledge = () => {
   modal.classList.remove('showThanks');
   modal.classList.add('hideThanks');
   closeOverlay();
-}
+  removeEnterPledgeFromAll();
+};
 
 goItButton.addEventListener('click', finishPledge);
 
+// DISPLAY MOBILE MENU
+const hamburger = document.getElementById('hamburgerIcon');
+const links = document.getElementById('links');
 
+const transformHamburgerIcon = () => {
+  hamburger.classList.toggle('open');
+};
+
+const updateNavBarLinksStyles = () => {
+  links.classList.toggle('showMobileMenu');
+};
+
+const showMobileMenu = () => {
+  transformHamburgerIcon();
+  updateNavBarLinksStyles();
+  if (!overlay.classList.contains('shown')) {
+    overlay.classList.remove('hidden');
+    overlay.classList.add('shown');
+  } else {
+    closeOverlay();
+  }
+};
+
+hamburger.addEventListener('click', showMobileMenu);

@@ -63,6 +63,9 @@ a:hover {
   grid-template-columns: repeat(12, auto);
   grid-template-rows: repeat(2, auto);
   row-gap: 1rem;
+  @include breakPointDown('615'){
+    grid-template-rows: repeat(3, auto);
+  }
 }
 
 // LATERAL PADDING HEPER CLASSES

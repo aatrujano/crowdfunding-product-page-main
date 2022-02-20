@@ -9,6 +9,9 @@
     top: -7.8125rem;
     z-index: 2;
     border-radius: 9px;
+    @include breakPointDown('750') {
+      padding: 2rem 1rem;
+    }
     &.showModal {
       transition: opacity 400ms ease;
       visibility: visible;
@@ -39,7 +42,7 @@
       margin-bottom: 2rem;
     }
     &-pledgeContainer {
-      max-height: 9.875rem;
+      max-height: fit-content;
       overflow: hidden;
       border-radius: 9px;
       border: solid 1px #d9d9d9;
@@ -56,7 +59,6 @@
       }
       .grid {
         padding: 2.125rem 1.5rem;
-
         .radio {
           width: 1.5rem;
           height: 1.5rem;
@@ -74,28 +76,39 @@
             transition: background-color 200ms ease;
           }
         }
-        .rewardTitle {
-          grid-column: 2/6;
-          font-weight: 700;
-          align-self: center;
-          transition: color 200ms ease;
-          cursor: pointer;
-          &:hover {
-            color: $cyan;
+        .titleAndinfoCont {
+          grid-column: 2/10;
+          @include breakPointDown('615') {
+            flex-direction: column;
           }
-        }
-        .pledgeAmountInfo {
-          grid-column: 6/10;
-          align-self: center;
-          margin-left: 1.125rem;
-          color: $cyan;
+          .rewardTitle {
+            font-weight: 700;
+            transition: color 200ms ease;
+            cursor: pointer;
+            &:hover {
+              color: $cyan;
+            }
+          }
+          .pledgeAmountInfo {
+            margin-left: 1.125rem;
+            color: $cyan;
+            @include breakPointDown('615') {
+              margin-left: 0;
+              margin-top: 0.5rem;
+            }
+          }
         }
         .pledgeItemsLeft {
           grid-column: 12/13;
           align-self: center;
           align-items: center;
+          @include breakPointDown('615') {
+            grid-column: 1/5;
+            grid-row: 3/4;
+          }
           > p {
             font-weight: 700;
+            font-size: 22px;
           }
           > span {
             font-size: 14px;
@@ -106,23 +119,34 @@
         .rewardInfo {
           grid-row: 2/3;
           grid-column: 2/13;
+          @include breakPointDown('615') {
+            grid-column: 1/13;
+          }
           color: $darkGray;
           font-size: 15px;
           line-height: 1.5rem;
         }
       }
       .enterPledge {
-        padding: 1.375rem 1.5rem;
+        max-height: 0;
+        justify-content: space-between;
         align-items: center;
+        visibility: hidden;
+        opacity: 0;
         border-top: solid 1px #d7d7d7;
+        @include breakPointDown('615') {
+          flex-direction: column;
+        }
         &__text {
           color: $darkGray;
           font-size: 14px;
+          @include breakPointDown('615') {
+            margin-bottom: 1rem;
+          }
         }
 
         &__cta {
           position: relative;
-          margin-left: auto;
           align-items: center;
           label {
             position: absolute;
@@ -157,7 +181,7 @@
         }
       }
       &.showEnterPledge {
-        max-height: 15.8125rem;
+        max-height: 50rem;
         border: solid 1px $cyan;
         box-shadow: 0 0 3px #3eb3ab;
         .grid {
@@ -167,11 +191,18 @@
             }
           }
         }
+        .enterPledge {
+          transition: padding 400ms ease, max-height 400ms ease,
+            opacity 200ms ease 100ms, visibility 0ms ease 100ms;
+          max-height: 10rem;
+          padding: 1.375rem 1.5rem;
+          opacity: 1;
+          visibility: visible;
+        }
       }
       &.pledgeOutOfStock {
         opacity: 0.5;
-        max-height: unset;
-        height: 9.875rem;
+        max-height: fit-content;
         box-shadow: unset;
         border: solid 1px #d7d7d7;
         .grid {
@@ -202,6 +233,9 @@
               }
             }
           }
+        }
+        .enterPledge {
+          display: none;
         }
       }
     }

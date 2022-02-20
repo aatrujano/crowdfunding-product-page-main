@@ -8,6 +8,7 @@
     }
     @include breakPointDown('750'){
         width: unset;
+        margin: 0 1rem;
     }
 }
 
