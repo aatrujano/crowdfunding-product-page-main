@@ -223,7 +223,7 @@
             <p class="enterPledge__text">Enter your pledge</p>
             <div class="enterPledge__cta flex-row">
               <label for="inputCta">$</label>
-              <input id="inputCta" class="inputCta" type="text" value="25" />
+              <input id="inputCta" class="inputCta" type="text" maxlength="4" value="25" />
               <button class="continueCta">Continue</button>
             </div>
           </div>
@@ -281,21 +281,19 @@
           </div>
         </div>
       </div>
+      <div id="thanksModal" class="main__thanksModal flex-col">
+        <img class="main__thanksModal-checkIcon" src="./images/icon-check.svg" alt="">
+        <h2 class='main__thanksModal-title'>Thanks for your support!</h2>
+        <p class="main__thanksModal-text">Your pledge brings us one step closer to sharing
+          Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our
+          campaign is completed.</p>
+          <button id="gotIt" class="main__thanksModal-gotItButton">Got it!</button>
+      </div>
     </main>
     <script src="./js/main.js"></script>
   </body>
 
-  <!-- Selected pledge  start -->
-  Enter your pledge $200 Continue
-  <!-- Selected pledge end -->
-
-  <!-- Selection modal end -->
-
-  <!-- Success modal start -->
-
-  Thanks for your support! Your pledge brings us one step closer to sharing
-  Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our
-  campaign is completed. Got it!
+  
 
   <!-- Success modal end -->
 </html>

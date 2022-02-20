@@ -137,10 +137,18 @@ const updateProgressBar = () => {
   }
 }
 
+const showThanksModal = () => {
+  const modal = document.getElementById('thanksModal');
+  modal.classList.remove('hideThanks');
+  modal.classList.add('showThanks');
+  document.documentElement.scrollTop = 400;
+}
+
 // pledge with no reward
 const confirmPledgeNoReward = () => {
   updateTotalBackers();
   closeBackThisProjectModal();
+  showThanksModal();
 };
 
 // pledge with reward
@@ -154,6 +162,7 @@ const confirmPledge = (cont, index) => {
     updateMoneyRaised(cont);
     updateItemsInStock(cont, index);
     closeBackThisProjectModal();
+    showThanksModal();
     updateProgressBar();
     checkForOutOfStockItems();    
     inputAmount.value = initialPledgeAmounts[index - 1];
@@ -176,6 +185,15 @@ pledgeContainers.forEach((container, index) => {
 
 let inputs = document.querySelectorAll('.inputCta');
 
-/*setTimeout(() => {
-  console.log(inputs[1].value);  
-}, 10000);*/
+//GOT IT BUTTON IN THANKS MODAL
+const goItButton = document.getElementById('gotIt');
+const finishPledge = () => {
+  modal = document.getElementById('thanksModal');
+  modal.classList.remove('showThanks');
+  modal.classList.add('hideThanks');
+  closeOverlay();
+}
+
+goItButton.addEventListener('click', finishPledge);
+
+
