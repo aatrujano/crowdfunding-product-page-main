@@ -19,6 +19,7 @@ body {
   padding: 0;
   font-family: "Commissioner", sans-serif;
   background-color: #fAfAfA;
+  min-width: 345px;
 }
 
 button {
@@ -138,6 +139,37 @@ a:hover {
   opacity: 0;
 }
 
+.menuOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000), to(transparent));
+  background: linear-gradient(180deg, #000, transparent);
+  opacity: 0;
+  z-index: 3;
+  visibility: hidden;
+}
+
+.menuOverlay.shown {
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
+  visibility: visible;
+  opacity: 0.5;
+}
+
+@media (min-width: 46.9375rem) {
+  .menuOverlay.shown {
+    visibility: hidden;
+  }
+}
+
+.menuOverlay.hidden {
+  -webkit-transition: opacity 400ms, visibility 0ms ease 400ms;
+  transition: opacity 400ms, visibility 0ms ease 400ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
 .header {
   background-image: url("../images/image-hero-desktop.jpg");
   background-repeat: no-repeat;
@@ -163,6 +195,11 @@ a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.header__navBar-logo {
+  position: relative;
+  z-index: 3;
 }
 
 .header__navBar-links .navLink a {

@@ -214,6 +214,7 @@ goItButton.addEventListener('click', finishPledge);
 // DISPLAY MOBILE MENU
 const hamburger = document.getElementById('hamburgerIcon');
 const links = document.getElementById('links');
+const menuOverlay = document.getElementById('menuOverlay');
 
 const transformHamburgerIcon = () => {
   hamburger.classList.toggle('open');
@@ -226,11 +227,12 @@ const updateNavBarLinksStyles = () => {
 const showMobileMenu = () => {
   transformHamburgerIcon();
   updateNavBarLinksStyles();
-  if (!overlay.classList.contains('shown')) {
-    overlay.classList.remove('hidden');
-    overlay.classList.add('shown');
+  if (!menuOverlay.classList.contains('shown')) {
+    menuOverlay.classList.remove('hidden');
+    menuOverlay.classList.add('shown');
   } else {
-    closeOverlay();
+    menuOverlay.classList.add('hidden');
+    menuOverlay.classList.remove('shown');
   }
 };
 

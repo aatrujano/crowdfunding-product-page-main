@@ -17,6 +17,7 @@ body {
   padding: 0;
   font-family: $commissioner;
   background-color: #fAfAfA;
+  min-width: 345px;
 }
 
 button {
@@ -93,7 +94,7 @@ a:hover {
   }
 }
 
-// OVERLAY
+// OVERLAYS
 .overlay {
   position: absolute;
   width: 100%;
@@ -113,4 +114,28 @@ a:hover {
     visibility: hidden;
     opacity: 0;
   }
+}
+
+.menuOverlay {  
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #000, transparent);
+  opacity: 0;
+  z-index: 3;
+  visibility: hidden;
+  &.shown {
+    transition: opacity 200ms ease;
+    visibility: visible;
+    @include breakPointUp('751'){
+      visibility: hidden;
+    }
+    opacity: 0.5;
+  }
+  &.hidden {
+    transition: opacity 400ms, visibility 0ms ease 400ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+
 }
