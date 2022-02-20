@@ -18,6 +18,12 @@
         position: relative;
         &.moneyRaised {
           padding-right: 2.625rem;
+          > div {
+            span {
+              font-size: 2rem;
+              font-weight: 700;
+            }
+          }
         }
         &.totalBackers {
           padding-left: 2.9375rem;
@@ -57,9 +63,9 @@
             padding: 0px;
             align-items: center;
           }
-          &:not(:last-child){
+          &:not(:last-child) {
             margin-bottom: 1.3rem;
-            .description{
+            .description {
               margin-bottom: 1.5rem;
             }
           }

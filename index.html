@@ -88,11 +88,13 @@
       <div class="main__status flex-col mainSection">
         <div class="main__status-allData flex-row">
           <div class="moneyRaised dataContainer flex-col">
-            <p class="count">$89,914</p>
+            <div class="flex-row">
+              <span>$</span><p id="totalMoney" class="count">89,914</p>
+            </div>
             <p class="description">of $100,000 backed</p>
           </div>
           <div class="totalBackers dataContainer flex-col">
-            <p class="count">5,007</p>
+            <p id="totalBackers" class="count">5,007</p>
             <p class="description">total backers</p>
           </div>
           <div class="daysLeft dataContainer flex-col">
@@ -101,7 +103,7 @@
           </div>
         </div>
         <div class="main__status-progressBar">
-          <div class="currentProgressBar"></div>
+          <div id="progressBar" class="currentProgressBar"></div>
         </div>
       </div>
       <div class="main__about flex-col mainSection">

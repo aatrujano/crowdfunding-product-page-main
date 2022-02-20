@@ -10,12 +10,12 @@
     z-index: 2;
     border-radius: 9px;
     &.showModal {
-      transition: opacity 800ms ease;
+      transition: opacity 400ms ease;
       visibility: visible;
       opacity: 1;
     }
     &.removed {
-      transition: opacity 800ms, visibility 0ms ease 800ms;
+      transition: opacity 400ms, visibility 0ms ease 400ms;
       visibility: hidden;
       opacity: 0;
     }
@@ -39,8 +39,21 @@
       margin-bottom: 2rem;
     }
     &-pledgeContainer {
+      max-height: 9.875rem;
+      overflow: hidden;
       border-radius: 9px;
       border: solid 1px #d9d9d9;
+      transition: border 200ms, max-height 200ms ease;
+      &:hover {
+        border: solid 1px $cyan;
+        .grid {
+          .radio {
+            .innerRadio {
+              background-color: $cyan;
+            }
+          }
+        }
+      }
       .grid {
         padding: 2.125rem 1.5rem;
 
@@ -58,13 +71,18 @@
             width: 0.75rem;
             height: 0.75rem;
             border-radius: 50%;
-            background-color: $cyan;
+            transition: background-color 200ms ease;
           }
         }
         .rewardTitle {
           grid-column: 2/6;
           font-weight: 700;
           align-self: center;
+          transition: color 200ms ease;
+          cursor: pointer;
+          &:hover {
+            color: $cyan;
+          }
         }
         .pledgeAmountInfo {
           grid-column: 6/10;
@@ -131,6 +149,58 @@
             background-color: #3cb4ac;
             font-size: 14px;
             width: 6.8125rem;
+            transition: background-color 200ms ease;
+            &:hover {
+              background-color: $hoverCyan;
+            }
+          }
+        }
+      }
+      &.showEnterPledge {
+        max-height: 15.8125rem;
+        border: solid 1px $cyan;
+        box-shadow: 0 0 3px #3eb3ab;
+        .grid {
+          .radio {
+            .innerRadio {
+              background-color: $cyan;
+            }
+          }
+        }
+      }
+      &.pledgeOutOfStock {
+        opacity: 0.5;
+        max-height: unset;
+        height: 9.875rem;
+        box-shadow: unset;
+        border: solid 1px #d7d7d7;
+        .grid {
+          .rewardTitle {
+            cursor: unset;
+            &:hover {
+              color: #000;
+            }
+          }
+          .radio {
+            .innerRadio {
+              background-color: #fff;
+            }
+          }
+        }
+        &:hover {
+          border: solid 1px #d7d7d7;
+          .grid {
+            .rewardTitle {
+              cursor: unset;
+              &:hover {
+                color: #000;
+              }
+            }
+            .radio {
+              .innerRadio {
+                background-color: #fff;
+              }
+            }
           }
         }
       }

@@ -106,7 +106,7 @@ a:hover {
   }
 
   &.hidden {
-    transition: opacity 800ms, visibility 0ms ease 800ms;
+    transition: opacity 400ms, visibility 0ms ease 400ms;
     visibility: hidden;
     opacity: 0;
   }
