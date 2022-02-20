@@ -237,3 +237,4 @@ const showMobileMenu = () => {
 };
 
 hamburger.addEventListener('click', showMobileMenu);
+menuOverlay.addEventListener('click', showMobileMenu);
