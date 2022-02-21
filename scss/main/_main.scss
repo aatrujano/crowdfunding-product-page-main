@@ -1,14 +1,16 @@
-.main{
-    position: relative;
-    bottom: 5.625rem;
-    width: 45.625rem;
-    margin: auto;
-    > div {
-        border: 1px solid #F5F5F5;
-    }
-    @include breakPointDown('750'){
-        width: unset;
-        margin: 0 1rem;
-    }
+.main {
+  position: relative;
+  bottom: 5.625rem;
+  @include breakPointDown('500') {
+    bottom: 9.625rem;
+  }
+  width: 45.625rem;
+  margin: auto;
+  > div {
+    border: 1px solid #f5f5f5;
+  }
+  @include breakPointDown('750') {
+    width: unset;
+    margin: 0 1rem;
+  }
 }
-

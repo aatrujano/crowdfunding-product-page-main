@@ -296,8 +296,14 @@ a:hover {
   margin: auto;
 }
 
+@media (max-width: 31.25rem) {
+  .main {
+    bottom: 9.625rem;
+  }
+}
+
 .main > div {
-  border: 1px solid #F5F5F5;
+  border: 1px solid #f5f5f5;
 }
 
 @media (max-width: 46.875rem) {
